@@ -16,12 +16,12 @@ def convert(o):
 
 
 def method_to_body(method_name, method):
-    return [u'<h2>Method %s</h2>' % (method_name,), convert(method)]
+    return [u'<h3>Method %s</h3>' % (method_name,), convert(method)]
 
 
 def resource_to_body(resource):
     out = [
-        u'<h1 id="r%s">Resource %s</h1>' % (resource.id, resource.main_name)]
+        u'<h2 id="r%s">Resource %s</h2>' % (resource.id, resource.main_name)]
 
     for url in resource.extra_urls:
         out.append(

@@ -21,15 +21,15 @@ def wrap(content, title=u'Documentation'):
 
 
 def process(resources, docres):
-    out = [u'<h1>Table of contents</h1><p style="margin-bottom: 30px;">']
+    out = [u'<h1>Table of contents</h1>']
 
     resources = [res for res in resources.get_resources() if res is not docres]
     resources.sort(key=lambda x: x.main_name)
 
+    out.extend([u'<ul>'])
     for res in resources:
-        out.extend([u'<a href="#r%s">%s</a><br>' % (res.id, res.main_name)])
-
-    out.extend([u'</p><hr>'])
+        out.extend([u'<li><a href="#r%s">%s</a></li>' % (res.id, res.main_name)])
+    out.extend([u'</ul>'])
 
     for res in resources:
         out.extend(resource_to_body(res))
